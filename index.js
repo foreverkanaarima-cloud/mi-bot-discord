@@ -37,4 +37,4 @@ Hola ${miembro}, ¡bienvenido/a al servidor! 💖
   canal.send({ embeds: [mensaje] });
 });
 
-cliente.login("MTUwMTYxNjQ1ODA4NDY1MTA1OA.GvT1h6.pS5MXtSA85oIwfcWVULf3Z-319H4uSp_QmHUtg");
+cliente.login("TOKEN_FALSO");
