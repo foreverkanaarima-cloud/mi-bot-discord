@@ -37,4 +37,5 @@ Hola ${miembro}, ¡bienvenido/a al servidor! 💖
   canal.send({ embeds: [mensaje] });
 });
 
-cliente.login("TOKEN_FALSO");
+console.log("TOKEN:", process.env.TOKEN);
+cliente.login(process.env.TOKEN);
