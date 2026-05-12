@@ -1,6 +1,6 @@
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 
-const cliente = new Cliente({
+const cliente = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers
@@ -11,7 +11,6 @@ cliente.once('ready', () => {
   console.log('Bot encendido correctamente');
 });
 
-cliente.on('guildMemberAdd', async (miembro) => {
 cliente.on('guildMemberAdd', async (miembro) => {
 
   console.log("ALGUIEN ENTRÓ:", miembro.user.tag);
@@ -42,5 +41,4 @@ Hola ${miembro}, ¡bienvenido/a al servidor! 💖
 
 });
 
-console.log("TOKEN:", process.env.TOKEN);
 cliente.login(process.env.TOKEN);
