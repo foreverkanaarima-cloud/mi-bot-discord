@@ -12,8 +12,12 @@ cliente.once('ready', () => {
 });
 
 cliente.on('guildMemberAdd', async (miembro) => {
+cliente.on('guildMemberAdd', async (miembro) => {
+
   console.log("ALGUIEN ENTRÓ:", miembro.user.tag);
-  const canal = miembro.guild.channels.cache.get("1047729651646214184");
+
+  const canal = miembro.guild.channels.cache.find(
+    ch => ch.name === "bienvenida"
   );
 
   if (!canal) return;
@@ -35,6 +39,7 @@ Hola ${miembro}, ¡bienvenido/a al servidor! 💖
     .setImage("https://i.imgur.com/xFDd3gx.png");
 
   canal.send({ embeds: [mensaje] });
+
 });
 
 console.log("TOKEN:", process.env.TOKEN);
