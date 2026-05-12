@@ -1,6 +1,6 @@
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 
-const cliente = new Client({
+const cliente = new Cliente({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers
