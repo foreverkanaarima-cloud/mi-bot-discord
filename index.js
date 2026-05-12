@@ -12,8 +12,8 @@ cliente.once('ready', () => {
 });
 
 cliente.on('guildMemberAdd', async (miembro) => {
-  const canal = miembro.guild.channels.cache.find(
-    ch => ch.name === "bienvenida"
+  console.log("ALGUIEN ENTRÓ:", miembro.user.tag);
+  const canal = miembro.guild.channels.cache.get("1047729651646214184");
   );
 
   if (!canal) return;
