@@ -11,6 +11,7 @@ cliente.once('ready', () => {
   console.log('Bot encendido correctamente');
 });
 
+// 🟢 BIENVENIDA
 cliente.on('guildMemberAdd', async (miembro) => {
 
   console.log("ALGUIEN ENTRÓ:", miembro.user.tag);
@@ -41,4 +42,30 @@ Hola ${miembro}, ¡bienvenido/a al servidor! 💖
 
 });
 
+// 🔴 DESPEDIDA
+cliente.on('guildMemberRemove', async (miembro) => {
+
+  const canal = miembro.guild.channels.cache.find(
+    ch => ch.name === "bienvenida"
+  );
+
+  if (!canal) return;
+
+  const despedida = new EmbedBuilder()
+    .setTitle("💔 Se fue un miembro...jaja te ira mejor en el cerro")
+    .setDescription(`
+${miembro.user.tag} ha salido del servidor...
+
+😢 Esperamos volver a verte algún día.
+`)
+    .setColor("#5865F2")
+    
+    // 👇 PON TU IMAGEN AQUÍ
+    .setImage("https://i.imgur.com/lJpTE6R.jpeg");
+
+  canal.send({ embeds: [despedida] });
+
+});
+
+// 🔐 LOGIN (SIEMPRE AL FINAL)
 cliente.login(process.env.TOKEN);
